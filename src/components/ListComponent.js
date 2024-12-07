@@ -2,7 +2,18 @@ const ListComponent = (props) => {
 
     return (
       <a className="experience-block" href={props.item.link} target="_blank" rel="noopener noreferrer">
-        <div className="experience-block-left">{props.item.startDate} - {props.item.endDate}</div>
+        {props.item.preview && props.item.preview !== "" ? (
+          <div className="experience-block-left">
+            {props.item.preview.endsWith(".mp4") ? (
+              <video src={props.item.preview} autoPlay loop muted />
+            ) : (
+              <img src={props.item.preview} alt={props.item.title} />
+            )}
+          </div>
+          ) : (
+            <div className="experience-block-left">{props.item.startDate} - {props.item.endDate}</div>
+          )
+        }
         <div className="experience-block-right">
           <div className="experience-block-right-title">
             {props.item.title}

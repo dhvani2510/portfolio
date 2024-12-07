@@ -66,6 +66,14 @@ const LeftSection = () => {
             <span className="action-item-name">EXPERIENCE</span>
           </a>
           <a
+            className={`action-item ${activeLink === "skills" ? "active" : ""}`}
+            href="#skills"
+            onClick={(e) => scrollToSection('skills', e)}
+          >
+            <span className="action-item-dash"></span>
+            <span className="action-item-name">SKILLS</span>
+          </a>
+          <a
             className={`action-item ${activeLink === "projects" ? "active" : ""}`}
             href="#projects"
             onClick={(e) => scrollToSection('projects', e)}

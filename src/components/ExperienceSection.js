@@ -6,7 +6,7 @@ const experience = [
     "subTitle": "Developed advanced management portal solutions, combining modern UI frameworks with robust backend technologies to enhance business operations.",
     "startDate": "Aug 2023",
     "endDate": "Dec 2023",
-    "link": "https://softabtechnologies.com/", 
+    "link": "https://softabtech.com/", 
     "technologies": ["Angular", "Spring Boot", "REST APIs", "MySQL", "Docker", "Jenkins", "AWS"]
 },
 {
