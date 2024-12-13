@@ -1,14 +1,22 @@
-import logo from './logo.svg';
-import './App.css';
-import LeftSection from './components/LeftSection';
-import RightSection from './components/RightSection';
+import React from "react";
+import Header from "./components/Header";
+import AboutSection from "./components/About";
+import ProjectSection from "./components/Projects";
+import PortfolioSection from "./components/Portfolio";
+import ContactSection from "./components/Contact";
 
 function App() {
   return (
-    <div className="main-body">
-      <div className="aura" style={{ left: "616px", top: "109px"}}></div>
-      <LeftSection />
-      <RightSection />
+    <div>
+      {/* a sticky top header */}
+      <Header />
+      <AboutSection />
+      <ProjectSection />
+      <PortfolioSection />
+      <ContactSection />
+      
+
+
     </div>
   );
 }
