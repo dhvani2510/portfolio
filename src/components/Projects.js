@@ -1,19 +1,15 @@
 import React, { useEffect } from "react";
-import "owl.carousel/dist/assets/owl.carousel.css";
-import "owl.carousel/dist/assets/owl.theme.default.css";
-import OwlCarousel from "react-owl-carousel";
 
 const HomeSection = () => {
-  const options = {
-    loop: true,
-    margin: 10,
-    nav: true,
-    dots: false,
-    autoplay: true,
-    autoplayTimeout: 15000,
-    items: 1,
-
-  };
+  // const options = {
+  //   loop: true,
+  //   margin: 10,
+  //   nav: true,
+  //   dots: false,
+  //   autoplay: true,
+  //   autoplayTimeout: 15000,
+  //   items: 1,
+  // };
 
   useEffect(() => {
     const videoElements = document.querySelectorAll("video");
@@ -26,14 +22,17 @@ const HomeSection = () => {
   }, []);
 
   return (
-    <section className="project p-2 d-lg-flex justify-content-center align-items-center" id="project">
+    <section
+      className="project p-2 d-lg-flex justify-content-center align-items-center"
+      id="project"
+    >
       <div className="container">
         <div className="row">
           <div className="col-lg-11 text-center mx-auto col-12">
             <div className="col-lg-8 mx-auto">
               <h2>A Glimpse Into My Journey of Building...</h2>
             </div>
-            <OwlCarousel
+            {/* <OwlCarousel
               className="owl-theme owl-carousel owl-loaded owl-drag"
               {...options}
             >
@@ -55,7 +54,7 @@ const HomeSection = () => {
                   className="img-fluid"
                 ></video>
               </div>
-            </OwlCarousel>
+            </OwlCarousel> */}
           </div>
         </div>
       </div>

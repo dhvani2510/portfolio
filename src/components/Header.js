@@ -14,17 +14,17 @@ const Header = () => {
   const toggleMenu = () => setIsMobileMenuOpen(!isMobileMenuOpen);
 
   return (
-    <nav className="navbar navbar-expand-sm navbar-light bg-light sticky-top">
-      <div className="container d-flex justify-content-between align-items-center w-100">
+    <nav className="bg-white shadow sticky top-0 z-50">
+      <div className="container mx-auto flex justify-between items-center px-4 py-3">
         {/* Brand */}
-        <a className="navbar-brand d-flex align-items-center" href="/">
+        <a href="/" className="flex items-center text-xl font-semibold">
           <FaUser className="mr-2" />
           Dhvani Sheth
         </a>
 
-        {/* Hamburger Icon (Visible on mobile) */}
+        {/* Hamburger Icon */}
         <button
-          className="d-sm-none border-0 bg-transparent"
+          className="sm:hidden text-gray-700 focus:outline-none"
           onClick={toggleMenu}
           aria-label="Toggle navigation"
         >
@@ -32,37 +32,35 @@ const Header = () => {
         </button>
 
         {/* Desktop Nav */}
-        <div className="d-none d-sm-block ml-auto">
-          <ul className="navbar-nav d-flex flex-row" role="navigation">
+        <ul className="hidden sm:flex space-x-6 text-gray-700 font-medium">
+          {navItems.map((item) => (
+            <li key={item.label}>
+              <a href={item.href} className="nav-link">
+                {item.label}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      {/* Mobile Nav */}
+      {isMobileMenuOpen && (
+        <div className="sm:hidden bg-white px-4 py-3 shadow">
+          <ul className="space-y-3 text-gray-700 font-medium">
             {navItems.map((item) => (
-              <li className="nav-item mx-2" key={item.label}>
-                <a href={item.href} className="nav-link">
-                  <span data-hover={item.label}>{item.label}</span>
+              <li key={item.label}>
+                <a
+                  href={item.href}
+                  onClick={() => setIsMobileMenuOpen(false)}
+                  className="block nav-link"
+                >
+                  {item.label}
                 </a>
               </li>
             ))}
           </ul>
         </div>
-
-        {/* Mobile Nav (conditionally rendered) */}
-        {isMobileMenuOpen && (
-          <div className="d-sm-none top-100 start-0 bg-white w-100 shadow-sm mt-2 px-3 py-2 z-index-10">
-            <ul className="navbar-nav" role="navigation">
-              {navItems.map((item) => (
-                <li className="nav-item my-2" key={item.label}>
-                  <a
-                    href={item.href}
-                    className="nav-link"
-                    onClick={() => setIsMobileMenuOpen(false)}
-                  >
-                    {item.label}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </div>
-        )}
-      </div>
+      )}
     </nav>
   );
 };

@@ -8,7 +8,6 @@ import ContactSection from "./components/Contact";
 function App() {
   return (
     <div>
-      {/* a sticky top header */}
       <Header />
       <AboutSection />
       <ProjectSection />
