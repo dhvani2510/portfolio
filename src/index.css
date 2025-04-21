@@ -2,6 +2,36 @@
 @tailwind components;
 @tailwind utilities;
 
+.perspective {
+  perspective: 1000px;
+}
+
+.transform-style-preserve-3d {
+  transform-style: preserve-3d;
+}
+
+.backface-hidden {
+  backface-visibility: hidden;
+}
+
+.rotate-y-180 {
+  transform: rotateY(180deg);
+}
+
+/* Add this to your global styles (e.g., App.css or index.css) */
+.slick-prev,
+.slick-next {
+  z-index: 10;
+  width: 40px;
+  height: 40px;
+}
+
+.slick-prev:before,
+.slick-next:before {
+  font-size: 30px;
+  color: #1f2937; /* Tailwind's gray-800 */
+}
+
 .nav-link:hover {
   color: #ffc200 !important;
   animation: BottomTotop 6s linear infinite 2s;
