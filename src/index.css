@@ -7,16 +7,11 @@
   animation: BottomTotop 6s linear infinite 2s;
 }
 
-.animated {
-  position: relative;
-}
-
 .animated-info {
   display: inline-block;
   min-width: 400px;
   position: relative;
   vertical-align: top;
-  margin-top: 5px;
 }
 
 .animated-item {
@@ -67,24 +62,5 @@
   }
   100% {
     opacity: 0;
-  }
-}
-
-@media (max-width: 767px) {
-  .animated-item {
-    font-size: 28px;
-  }
-}
-@media (max-width: 580px) {
-  .animated-info {
-    min-width: 200px;
-  }
-  .animated-item {
-    font-size: 30px;
-  }
-}
-@media (max-width: 320px) {
-  .animated-text {
-    margin-top: 0;
   }
 }
