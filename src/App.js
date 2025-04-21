@@ -14,9 +14,6 @@ function App() {
       <ProjectSection />
       <PortfolioSection />
       <ContactSection />
-      
-
-
     </div>
   );
 }

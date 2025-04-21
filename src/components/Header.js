@@ -1,57 +1,67 @@
+import { useState } from "react";
+import { FaUser, FaBars, FaTimes } from "react-icons/fa";
 
 const Header = () => {
-  // run a function on click
-  const handleClick = () => {
-      document.body.classList.toggle("dark-mode");
-      document.getElementById("color-mode").classList.toggle("uil-sun");
-      document.getElementById("color-mode").classList.toggle("uil-moon");
-  };
-  return (
-    <nav className="navbar navbar-expand-sm navbar-light headroom headroom--top headroom--not-bottom">
-      <div className="container">
-        <a className="navbar-brand" href="/">
-          <i className="uil uil-user"></i> Dhvani Sheth
-        </a>
-        <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
-          aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation" >
-          <span className="navbar-toggler-icon"></span>
-          <span className="navbar-toggler-icon"></span>
-          <span className="navbar-toggler-icon"></span>
-        </button>
-        <div className="collapse navbar-collapse" id="navbarNav">
-          <ul className="navbar-nav mx-auto">
-            <li className="nav-item">
-              <a href="#about" className="nav-link">
-                <span data-hover="About">About</span>
-              </a>
-            </li>
-            <li className="nav-item">
-              <a href="#project" className="nav-link">
-                <span data-hover="Projects">Projects</span>
-              </a>
-            </li>
-            <li className="nav-item">
-              <a href="#portfolio" className="nav-link">
-                <span data-hover="Resume">Profile</span>
-              </a>
-            </li>
-            <li className="nav-item">
-              <a href="#contact" className="nav-link">
-                <span data-hover="Contact">Contact</span>
-              </a>
-            </li>
-          </ul>
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
-          <ul className="navbar-nav ml-lg-auto">
-            <div className="ml-lg-4">
-              <div onClick={handleClick} className="color-mode d-lg-flex justify-content-center align-items-center">
-                <i className="uil uil-moon" id="color-mode"></i> 
-                &nbsp;
-                Color mode
-              </div>
-            </div>
+  const navItems = [
+    { label: "About", href: "#about" },
+    { label: "Projects", href: "#project" },
+    { label: "Profile", href: "#portfolio" },
+    { label: "Contact", href: "#contact" },
+  ];
+
+  const toggleMenu = () => setIsMobileMenuOpen(!isMobileMenuOpen);
+
+  return (
+    <nav className="navbar navbar-expand-sm navbar-light bg-light sticky-top">
+      <div className="container d-flex justify-content-between align-items-center w-100">
+        {/* Brand */}
+        <a className="navbar-brand d-flex align-items-center" href="/">
+          <FaUser className="mr-2" />
+          Dhvani Sheth
+        </a>
+
+        {/* Hamburger Icon (Visible on mobile) */}
+        <button
+          className="d-sm-none border-0 bg-transparent"
+          onClick={toggleMenu}
+          aria-label="Toggle navigation"
+        >
+          {isMobileMenuOpen ? <FaTimes size={24} /> : <FaBars size={24} />}
+        </button>
+
+        {/* Desktop Nav */}
+        <div className="d-none d-sm-block ml-auto">
+          <ul className="navbar-nav d-flex flex-row" role="navigation">
+            {navItems.map((item) => (
+              <li className="nav-item mx-2" key={item.label}>
+                <a href={item.href} className="nav-link">
+                  <span data-hover={item.label}>{item.label}</span>
+                </a>
+              </li>
+            ))}
           </ul>
         </div>
+
+        {/* Mobile Nav (conditionally rendered) */}
+        {isMobileMenuOpen && (
+          <div className="d-sm-none top-100 start-0 bg-white w-100 shadow-sm mt-2 px-3 py-2 z-index-10">
+            <ul className="navbar-nav" role="navigation">
+              {navItems.map((item) => (
+                <li className="nav-item my-2" key={item.label}>
+                  <a
+                    href={item.href}
+                    className="nav-link"
+                    onClick={() => setIsMobileMenuOpen(false)}
+                  >
+                    {item.label}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+        )}
       </div>
     </nav>
   );
