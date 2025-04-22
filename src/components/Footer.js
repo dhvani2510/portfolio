@@ -2,7 +2,10 @@ import React from "react";
 
 function Footer() {
   return (
-    <footer className="footer">
+    <footer className="bg-gray-800 text-white text-center py-4">
+      <p className="text-sm">
+        &copy; {new Date().getFullYear()} Dhvani Sheth. All rights reserved.
+      </p>
     </footer>
   );
 }
